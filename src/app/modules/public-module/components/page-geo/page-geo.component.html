@@ -1,0 +1,18 @@
+@if((!s_permission_location() )){
+
+<!-- PANEL ERROR LOCATION -->
+<app-error-location (click)="reload_location()"></app-error-location>
+
+}
+
+<!-- -------------- -->
+<!-- content page -->
+<!-- -------------- -->
+
+<mat-card-content class="w3-row w3-col m-0 p-0">
+  <app-map-page
+    (reload_location)="reload_location()"
+    [coord_user]="s_coord_user()"
+    [location_status]="s_location_status()"
+  ></app-map-page>
+</mat-card-content>

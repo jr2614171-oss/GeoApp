@@ -1,0 +1,53 @@
+@switch (s_currentState()) { @case ('spiner') {
+
+<mat-card
+  class="w3-row w3-col set-height-100 position-fixed top-0 middle-z-index panel-error-connection bg-dark bg-opacity-50"
+>
+  <div class="w3-animate-opacity w3-col w3-container">
+    <div class="w3-row w3-col container">
+      <!-- <i class="w3-col fas fa-4x fa-exclamation-triangle icon"></i> -->
+      <div class="w3-row w3-col _center-h-sb">
+        <img
+          src="./assets/img/logo.svg"
+          alt=""
+          [class]="'w3-col w3-animate-opacity rounded-3 p-1 set-img-logo-20 '"
+        />
+      </div>
+
+      <div class="w3-row w3-col _center-h-sb">
+        <label class="w3-row w3-col w3-center">
+          <br />
+          <a class="w-100">
+            <i class="spinner-border w3-medium m-1 p-1 text-warning"></i
+          ></a>
+        </label>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+} @case ('primary') {
+
+<mat-card
+  class="w3-row w3-col set-height-100 position-fixed top-0 middle-z-index panel-error-connection bg-dark bg-opacity-50"
+>
+  <div class="three-container w3-animate-opacity">
+    <div
+    
+    class="three-body">
+      <div class="three-body__dot"></div>
+      <div class="three-body__dot"></div>
+      <div class="three-body__dot"></div>
+    </div>
+
+    <p
+       
+      class="w3-row w3-col text-center w3-container fixed-bottom _center-h text-warning text-uppercase fw-bold"
+      style="margin-bottom: 20vh"
+    >
+      {{ s_text_info() }} <i class="fa fa-arrow-rotate-forward w3-btn pt-2"></i>
+    </p>
+  </div>
+</mat-card>
+
+} }

@@ -1,0 +1,38 @@
+@defer (on timer(0); hydrate on viewport){
+
+<mat-card
+  class="w3-row w3-col set-height-100 position-fixed top-0 bg-dark middle-z-index m-0 p-0 text-white set-height-100 d-block"
+>
+  <!-- Navbar -->
+  <mat-card-header class="w3-row w3-col set-height-7 m-0 p-0 d-block">
+    <app-navbar></app-navbar>
+  </mat-card-header>
+  
+  <mat-card-content class="w3-row w3-col set-height-92 m-0 mt-7 p-0"> 
+    <!-- Router -->
+    <router-outlet></router-outlet>
+  </mat-card-content>
+
+</mat-card>
+} @placeholder{
+
+<div class="three-container" role="alert" aria-busy="true">
+  <div class="three-body_">
+    <h3 style="color: rgb(23, 98, 22);">GEOapp</h3>
+  </div>
+  <p
+    class="w3-row w3.col w-100 mt-10 _center-h text-warning text-uppercase fw-bold"
+    style="
+      width: 100vw;
+      position: fixed;
+      bottom: 0;
+      text-align: center;
+      margin-bottom: 30vh;
+      color: rgb(23, 98, 22);
+      font-size: 13px;
+    "
+  >
+    Iniciando servicios... ...
+  </p>
+</div>
+}

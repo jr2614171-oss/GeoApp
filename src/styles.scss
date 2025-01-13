@@ -1,0 +1,616 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.elevation-classes();
+/* estaba dando error y se oculot */
+@include mat.app-background();
+@include mat.core();
+
+/* En styles.css o styles.scss */
+@import '../node_modules/ol/ol.css';
+// @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap');
+
+
+/* You can add global styles to this file, and also import other style files */
+
+
+:root {
+  user-select: none;
+  height: 100%;
+}
+
+
+* {
+  font-family: 'Baloo Bhai 2', sans-serif;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+
+  -webkit-overflow-scrolling: touch;
+  /* Mejora scroll en iOS */
+  touch-action: manipulation;
+  /* Previene el zoom en dispositivos táctiles */
+}
+
+
+html,
+body {
+
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  color: var(--text-color);
+  margin: 0;
+  --header-color: #D1DFB7;
+  --sidebar-color: #FAE6BE;
+  --text-color: black;
+  user-select: none;
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+
+@function set-height($height) {
+  @return #{$height}vh; // Retorna la altura en vh
+}
+
+// Creación de clases con alturas predefinidas
+@for $i from 1 through 100 {
+  .set-height-#{$i} {
+    height: set-height($i);
+    overflow: hidden;
+  }
+}
+
+// Creación de clases con alturas predefinidas
+@for $i from 1 through 100 {
+  .set-height-s-#{$i} {
+    height: set-height($i);
+    overflow-y: auto;
+    /* Agrega un scroll vertical si es necesario */
+    overflow-x: hidden;
+    /* Agrega un scroll vertical si es necesario */
+  }
+}
+
+@function set-px-img($height) {
+  @return #{$height}vh; // Retorna la altura en vh
+}
+
+
+// tamaño de imagenes con alturas predefinidas
+@for $i from 5 through 100 {
+  .set-img-logo-#{$i} {
+    width: set-px-img($i);
+    border-radius: 10px;
+  }
+}
+
+.img-logo-sm {
+  width: 50px;
+  border-radius: 10px;
+}
+
+.img-logo-xsm {
+  width: 55px;
+  border-radius: 10px;
+}
+
+.img-logo-xxsm {
+  width: 65px;
+  border-radius: 10px;
+}
+
+.img-logo-md {
+  width: 75px;
+  border-radius: 10px;
+}
+
+.img-logo-xmd {
+  width: 85px;
+  border-radius: 10px;
+}
+
+.img-logo-xxmd {
+  width: 95px;
+  border-radius: 10px;
+}
+
+.img-logo-lg {
+  width: 105px;
+  border-radius: 10px;
+}
+
+.img-logo-xlg {
+  width: 115px;
+  border-radius: 10px;
+}
+
+.img-logo-xxlg {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+._center-h {
+  display: flex;
+  justify-content: center;
+  /* Centra los elementos horizontalmente */
+  margin: auto;
+}
+
+._center-h-sb {
+  display: flex;
+  justify-content: space-between;
+  /* Distribuye los elementos con espacio entre ellos */
+  margin: auto;
+}
+
+.center-h-sa {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+
+// ---------------------------------
+// ---------------------------------
+// /* scroll fondo */
+// ---------------------------------
+// ---------------------------------
+
+// ::-webkit-scrollbar {
+
+
+// }
+
+
+// /* scroll barra */
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  /* Redondeado de los bordes */
+  background-color: rgb(163, 160, 160);
+}
+
+/* Estilo para el track (superficie) del scrollbar */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  /* Sombra interior */
+  border-radius: 6px;
+  /* Redondeado de los bordes */
+}
+
+/* Estilos adicionales para el thumb (parte móvil) del scrollbar */
+::-webkit-scrollbar-thumb:horizontal {
+  background-clip: padding-box;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-clip: padding-box;
+  width: 5px;
+}
+
+/* Hacer que el scrollbar sea más fino */
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+  background-color: transparent;
+}
+
+
+// ---------------------------------
+// ---------------------------------
+// /* scroll fondo */
+// ---------------------------------
+// ---------------------------------
+
+.text-line-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.text-line-auto {
+  overflow: visible;
+  display: block;
+}
+
+._divider-white {
+  border: aliceblue 2px solid;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+._divider-black {
+  border: rgb(16, 16, 16) 2px solid;
+}
+
+// -----
+// ---- COLORS
+// ----
+
+// -- border
+._color-border-blue {
+  border: rgb(42 94 142) 2px solid;
+}
+
+// -- background
+._bg-img-green {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  // background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+
+  background-image: url(/assets/img/bg-green.jpg);
+  background-position: 100% 50%;
+
+}
+
+._bg-img-blue {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: rgb(42 94 142) 2px solid;
+  background-blend-mode: multiply;
+
+  // background-image: url(/assets/img/bg-green.jpg);
+  background-position: 100% 50%;
+
+}
+
+._bg-img-white {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  // background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+
+  background-image: url(/assets/img/bg-white.jpg);
+  background-position: 100% 50%;
+
+}
+
+/*
+  Validacion de formularios (Mostrar color segun estado)
+  ======================================
+  ==========================================================
+
+  */
+.ng-valid:not(form).ng-touched {
+  border-left: 5px solid #42a948;
+  /* Green */
+}
+
+.ng-invalid:not(form).ng-touched {
+  border-left: 5px solid #a94442;
+  /* red */
+}
+
+// --MAT-SNACKBAR
+
+.success-snackbar {
+  --mdc-snackbar-container-color: #73E575;
+  --mdc-snackbar-supporting-text-color: #343030;
+  --mat-snack-bar-button-color: #121212;
+
+  --mat-snack-bar-button-background-color: #1B1B1B;
+  --mat-app-inverse-surface: #121212;
+
+  /* Radio de esquina del snackbar */
+  --mdc-snackbar-container-shape: 10px;
+
+  font-weight: normal;
+  text-align: center;
+  font-size: medium;
+
+  // box-shadow: 4px 6px 2rem 10px black;
+  /* Sombra del snackbar */
+
+}
+
+.success-snackbar .mat-mdc-snack-bar-label {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: rgb(4, 4, 4);
+  padding-top: 7px;
+}
+
+.success-snackbar .mat-mdc-snack-bar-actions:hover {
+  background-color: rgba(255, 255, 255, 0);
+
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: #E57373;
+  --mdc-snackbar-supporting-text-color: #343030;
+  --mat-snack-bar-button-color: #121212;
+
+  --mat-snack-bar-button-background-color: #1B1B1B;
+  --mat-app-inverse-surface: #121212;
+
+  /* Radio de esquina del snackbar */
+  --mdc-snackbar-container-shape: 10px;
+
+  font-weight: normal;
+  text-align: center;
+  font-size: medium;
+
+  // box-shadow: 4px 6px 2rem 10px black;
+  /* Sombra del snackbar */
+}
+
+.error-snackbar .mat-mdc-snack-bar-label {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: rgb(4, 4, 4);
+  padding-top: 7px;
+}
+
+.error-snackbar .mat-mdc-snack-bar-actions:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.warning-snackbar {
+  --mdc-snackbar-container-color: #E6BE45;
+  --mdc-snackbar-supporting-text-color: #343030;
+  --mat-snack-bar-button-color: #121212;
+
+  --mat-snack-bar-button-background-color: #1B1B1B;
+  --mat-app-inverse-surface: #121212;
+
+  /* Radio de esquina del snackbar */
+  --mdc-snackbar-container-shape: 10px;
+
+  font-weight: normal;
+  text-align: center;
+  font-size: medium;
+
+  // box-shadow: 4px 6px 2rem 10px black;
+  /* Sombra del snackbar */
+}
+
+.warning-snackbar .mat-mdc-snack-bar-label {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: rgb(8, 8, 8);
+  padding-top: 7px;
+
+}
+
+.warning-snackbar .mat-mdc-snack-bar-actions:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.high-z-index {
+  z-index: 10000 !important;
+  /* Elije un valor grande que supere el z-index de tu Navbar/Header */
+}
+
+.middle-z-index {
+  z-index: 1031 !important;
+  /* Elije un valor grande que supere el z-index de tu Navbar/Header */
+}
+
+.small-z-index {
+  z-index: 131 !important;
+  /* Elije un valor grande que supere el z-index de tu Navbar/Header */
+}
+
+@function set-z-index($z_index) {
+  @return #{$z_index};
+}
+
+// tamaño de imagenes con alturas predefinidas
+@for $i from 5 through 100 {
+  .set-z-index-#{$i} {
+    z-index: set-z-index($i) !important;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 4px 10px black;
+}
+
+.pointer-event-none {
+  pointer-events: none;
+}
+
+:host .cdk-overlay-container {
+  z-index: 10000;
+  /* Asegúrate de que este valor sea mayor que el de otros elementos */
+}
+
+
+
+
+.map {
+  z-index: 1;
+  position: relative;
+}
+
+.panel-error-connection {
+  background: #1d2125bf;
+  background: rgb(0, 0, 0, .8);
+  backdrop-filter: blur(10px);
+  padding-top: 40%;
+}
+
+.loading-item {
+  height: 80px;
+  width: 100%;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vmax;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.loading {
+  overflow: hidden;
+  background: linear-gradient(110deg, transparent 10%, #333, transparent 90%);
+  animation: gradient-animation_2 5s linear infinite forwards;
+}
+
+.no-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  color: #999;
+}
+
+/* 
+* BUTTONS
+*
+*
+*/
+.linki-btn-card {
+  background-color: #555;
+  /* Botones oscuros */
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.linear-gradient-top{
+  mask-image: linear-gradient( to bottom, transparent, black 20px 20px);
+}
+
+.linear-gradient-bottom{
+  mask-image: linear-gradient( to top, transparent, black 20px 20px);
+}
+
+@keyframes gradient-animation_2 {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+/*
+    Validacion de formularios (Mostrar color segun estado)
+     ======================================
+    ==========================================================
+
+    */
+
+@function set-mt($vh) {
+  @return #{$vh}vh; // Retorna margen en vh
+}
+
+
+// margen superior
+@for $i from 5 through 15 {
+  .mt-#{$i} {
+    margin-top: set-mt($i);
+  }
+}
+
+// .mt-10 {
+
+// }
+
+
+// .mt-15 {
+//   margin-top: 114px;
+// }
+
+// .article {
+
+//   height: 90vh;
+//   overflow-y: auto;
+//   /* Agrega un scroll vertical si es necesario */
+//   overflow-x: hidden;
+//   /* Agrega un scroll vertical si es necesario */
+
+// }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+// estilos para controlar el tamaño de los iconos con mat-#
+@mixin mat($size) {
+  height: fit-content !important;
+  width: fit-content !important;
+  font-size: #{$size}px;
+}
+
+@for $i from 1 through 20 {
+
+  // Puedes cambiar el rango según tus necesidades
+  .mat-#{$i} {
+    @include mat($i);
+  }
+}
+
+
+:root {
+
+  // -- para el mat-menu  
+  @include mat.menu-overrides((item-focus-state-layer-color: #222,
+      item-hover-state-layer-color: #222,
+      item-label-text-color: #fff,
+      item-icon-color: #fff,
+      container-color: #1c1b1f,
+    ));
+
+  // -- para el mat-fecha-calendar
+  @include mat.datepicker-overrides((calendar-container-background-color: #1c1b1f,
+      calendar-container-text-color: gold,
+      calendar-date-selected-state-background-color: gold,
+
+      calendar-date-selected-state-text-color: #000,
+      calendar-date-text-color: #fff,
+    ));
+
+  // -- para el mat-time
+  @include mat.timepicker-overrides((container-background-color: #fff,
+      container-shape: gold,
+    ));
+
+}

@@ -1,0 +1,36 @@
+<mat-card-header
+  [id]="'header'"
+  [class]="
+    ' border-secondary w3-row w3-col l12 m12 s12 d-block set-z-index-5 position-absolute m-0 p-0'
+  "
+  style="background-color: #1c1b1f !important; height: 55px"
+>
+  <nav [class]="'navbar navbar-dark pt-sm-0 '">
+    <div [class]="'w3-row w3-col '">
+      <!-- /* LA VISTA QUE MUETRA EL NAVBAR * * */ -->
+      <!-- PANEL NAVBAR COMPONENT -->
+      <div [class]="'w3-col'">
+        <a [class]="'top-0 navbar-brand position-fixed'">
+          <img
+            src="./assets/icons/logo.png"
+            alt=""
+            [class]="' w3-animate-zoom rounded-3 p-1 set-img-logo-5 '"
+          />
+          <label class="fw-bolder">{{ s_titleApp() }}</label>
+        </a>
+
+        <button
+          [class]="'w3-btn border-0 navbar-toggler text-white w3-right fs-5'"
+        >
+          <i [class]="'w3-xlarge fa fa-share-alt me-2 '"></i>
+        </button>
+
+        <button
+          [class]="'w3-btn border-0 navbar-toggler text-white w3-right fs-5'"
+        >
+          <i [class]="'w3-xlarge fa fa-headset me-2 '"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+</mat-card-header>

@@ -1,0 +1,82 @@
+<mat-card class="w3-row w3-col p-0 m-0">
+  @if (this.map == undefined) {
+  <!-- PANEL LOADING PROCESS -->
+  <app-info-loading></app-info-loading>
+  }
+  <!-- * -->
+  <!-- * -->
+  <!-- MAP -->
+  <!-- * -->
+  <!-- * -->
+
+  <mat-card-content class="w3-row w3-col p-0 m-0 position-absolute">
+    <div id="map" class="map"></div>
+  </mat-card-content>
+
+  <!-- * -->
+  <!-- * -->
+  <!-- PANEL BUTTONS -->
+  <!-- * -->
+  <!-- * -->
+  <mat-card-content
+    class="w3-row w3-col p-0 m-0 fixed-bottom mb-4"
+    style="z-index: 1"
+  >
+    @if(s_location_status()){
+
+    <!-- BOTON PARA CENTRAR... -->
+    <button
+      id="btn_centerPosition"
+      [class]="
+        ' btn position-absolute bg-dark rounded-5 p-2 text-white border border-secondary'
+      "
+      type="button"
+      (click)="centerMap()"
+    >
+      <i [class]="'fa fa-location-crosshairs w3-xxlarge'"></i>
+    </button>
+
+    } @else{
+
+    <!-- BOTON PARA CENTRAR TU UBICACION (SIN GPS)... -->
+    <button
+      id="btn_centerPosition"
+      style="aspect-ratio: auto"
+      (click)="f_reload_location()"
+      (click)="f_rotate_btn('rotate_location')"
+      [class]="
+        'w3-black border border-danger border-3  btn-sm position-absolute text-danger  rounded-5 '
+      "
+      type="button"
+    >
+      <i
+        [class]="'rotate_location spinner-border w3-xlarge p-1 text-danger'"
+      ></i>
+    </button>
+
+    <!-- BOTON PARA LOCATION... -->
+    <button
+      type="button"
+      id="btn_navigation"
+      class="box-shadow position-absolute bg-dark btn-md rounded-3 text-danger border border-danger w3-col s10 p-2"
+    >
+      Sin conexión al GPS @if(loadingSocketBtn ){
+      <label class="spinner-border w3-medium m-1 p-1 text-white"></label>
+      }@else {
+      <i class="fa fa-arrow-rotate-forward"></i>
+      }
+    </button>
+
+    }
+  </mat-card-content>
+
+  <!-- * -->
+  <!-- * -->
+  <!-- OTHERS PAGES -->
+  <!-- * -->
+  <!-- * -->
+
+  <mat-card-content class="w3-row w3-col p-0 m-0">
+   
+  </mat-card-content>
+</mat-card>

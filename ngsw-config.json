@@ -1,0 +1,87 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app", 
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest.json",
+          "/*.css",
+          "/*.js"
+        ],
+        "urls": [
+          "https://openlayers.org/en/v6.1.1/css/ol.css"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy", 
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/assets/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2|json|html)",
+          "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2|map)"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**"
+        ]
+      }
+    }
+  ],
+  
+  "dataGroups": [
+     
+    {
+      "name": "app-api",
+      "urls": [
+        "**/api/v1/**"
+      ],
+      "cacheQueryOptions": {
+        "ignoreSearch": true
+      },
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 20,
+        "maxAge": "1h",
+        "strategy": "freshness",
+        "cacheOpaqueResponses": false,
+        "timeout": "3s"
+
+      }
+    },
+    {
+      "name": "app-routes",
+      "urls": [
+        "**/traveler/**",
+        "**/driver/**",
+        "**/help-center/**",
+        "**/public/**",
+        "**/session/**",
+        "!**/api/**"
+      ],
+      "cacheQueryOptions": {
+        "ignoreSearch": true
+      },
+      "version": 1,
+      "cacheConfig": {
+        "maxSize": 500,
+        "maxAge": "7d",
+        "strategy": "performance",
+        "cacheOpaqueResponses": false,
+        "timeout": "2s"
+
+      }
+    }
+
+  ]
+}
+
+
+

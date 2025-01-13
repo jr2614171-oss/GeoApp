@@ -1,0 +1,28 @@
+<mat-card
+  class="w3-row w3-col set-height-92 position-fixed top- middle-z-index panel-error-connection bg-dark bg-opacity-50 mt-0"
+>
+<div
+  class="w3-animate-opacity  w3-col w3-container w3-center text-dark fw-bold text-white"
+>
+   
+    <i class="fas fa-4x fa-exclamation-triangle icon"></i>
+    <h2 class="border border-0 border-bottom border-danger">
+      La página no ha sido encontrada
+    </h2>
+
+    <button
+      (click)="goBackByUrl()"
+      [classList]="' me-2 w3-right btn btn-outline-warning'"
+    >
+      Ir Atrás
+    </button>
+    <button
+       (click)="goToUrl('public/geo')"
+      [classList]="' me-2 w3-right btn btn-warning text-dark'"
+    >
+      Recargar
+    </button>
+   
+</div>
+
+</mat-card>

@@ -1,0 +1,22 @@
+<div [classList]="'w3-row w3-col_center-h'">
+  @if(data.Msj){
+
+  <p
+    [class.text-danger]="data.MsjCode == 'danger'"
+    [class.text-success]="data.MsjCode == 'success'"
+    [class.text-warning]="data.MsjCode == 'warning'"
+    [classList]="' w3-row w3-col text-center m-0 text-lowercase fw-bolder  '"
+  >
+    <label [classList]="' w3-col fadeIn '">{{ data.Msj }} </label>
+  </p>
+  } 
+  <!-- @if(!socket_status){
+
+  <div [classList]="'w3-row w3-col set-height-100 _center-h'">
+    <label
+      style="margin-top: 50vh !important; position: relative; padding: 50px"
+      class="spinner-border w3-medium m-1 p-1 text-warning high-z-index"
+    ></label>
+  </div>
+  } -->
+</div>
