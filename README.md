@@ -1,6 +1,8 @@
-# GeolocF
+# GeoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
+Interactive Map with Real-Time Location
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19
 
 ## Development server
 
