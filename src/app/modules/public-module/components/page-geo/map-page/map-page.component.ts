@@ -106,6 +106,9 @@ export class MapPageComponent
   s_footerDisplayed = signal(false);
    
   s_location_status = signal(this.location_status());
+
+  s_pinMode = signal(false);
+  s_customMarkers = signal<any[]>([]);
   
 
   s_map = signal<any>;
@@ -188,6 +191,7 @@ export class MapPageComponent
     if (this.map == undefined) {
       this.initMap();
       this.initMapEventClick();
+      this.loadCustomMarkers();
     }
   }
 
@@ -352,6 +356,11 @@ export class MapPageComponent
           //   feature.get('client')
           // );
 
+          if (this.s_pinMode() && feature.get('client').type === 'custom_pin') {
+            this.removeCustomPin(feature.get('client').id);
+            return;
+          }
+
           const coord = [
             feature.get('client').currentPosition.long,
             feature.get('client').currentPosition.lat,
@@ -376,6 +385,11 @@ export class MapPageComponent
           //   }
           // }
         } else {
+          if (this.s_pinMode()) {
+            this.addCustomPin(event.coordinate);
+            return;
+          }
+
           this.s_matchingFavoritePlace.set({
             id: '',
             address: '',
@@ -531,6 +545,59 @@ export class MapPageComponent
 
       this.mapService.setMarkerSignal(this.markers);
     }
+  }
+
+  togglePinMode() {
+    this.s_pinMode.update(mode => !mode);
+  }
+
+  private loadCustomMarkers() {
+    const saved = localStorage.getItem('customPins');
+    if (saved) {
+      const pins = JSON.parse(saved);
+      this.s_customMarkers.set(pins);
+      pins.forEach((pin: any) => {
+        const coord: Coordinate = [pin.lng, pin.lat];
+        const client: I_Marker = {
+          id: pin.id,
+          name: '',
+          currentPosition: {
+            lat: pin.lat,
+            long: pin.lng,
+          },
+          type: 'custom_pin',
+        };
+        this.initMarker(coord, client);
+      });
+    }
+  }
+
+  private saveCustomMarkers() {
+    localStorage.setItem('customPins', JSON.stringify(this.s_customMarkers()));
+  }
+
+  private addCustomPin(mapCoord: Coordinate) {
+    const transformed = transform(mapCoord, 'EPSG:3857', 'EPSG:4326');
+    const id = Date.now().toString() + Math.random().toString(36).substr(2, 9);
+    const newPin = { id, lat: transformed[1], lng: transformed[0] };
+    this.s_customMarkers.update(markers => [...markers, newPin]);
+    this.saveCustomMarkers();
+    const client: I_Marker = {
+      id,
+      name: '',
+      currentPosition: {
+        lat: transformed[1],
+        long: transformed[0],
+      },
+      type: 'custom_pin',
+    };
+    this.initMarker(transformed, client);
+  }
+
+  private removeCustomPin(id: string) {
+    this.s_customMarkers.update(m => m.filter(p => p.id !== id));
+    this.saveCustomMarkers();
+    this.clearMarker(id);
   }
  
   printMarkers(favoritePlaces: I_Places[]) {

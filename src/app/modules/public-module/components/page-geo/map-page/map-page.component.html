@@ -36,6 +36,18 @@
       <i [class]="'fa fa-location-crosshairs w3-xxlarge'"></i>
     </button>
 
+    <!-- BOTON PARA MODO PIN -->
+    <button
+      id="btn_pinMode"
+      class="btn position-absolute bg-primary rounded-5 p-2 text-white border border-primary"
+      style="right: 2.6vh; bottom: 120px; z-index: 2;"
+      [ngClass]="{ 'active bg-success': s_pinMode() }"
+      type="button"
+      (click)="togglePinMode()"
+    >
+      <i class="fa fa-map-pin w3-xxlarge"></i>
+    </button>
+
     } @else{
 
     <!-- BOTON PARA CENTRAR TU UBICACION (SIN GPS)... -->

@@ -215,6 +215,16 @@ export const MARKER_STYLE: { [key: string]: Style } = {
       anchor: [0.5, 0.4],
     }),
   }),
+  custom_pin: new Style({
+    image: new Icon({
+      src: STAR_ICON,
+      color: MARKER_COLOR['transparent'],
+      crossOrigin: 'anonymous',
+      size: [30, 30],
+      scale: 1.4,
+      anchor: [0.5, 0.4],
+    }),
+  }),
   // Agrega más estilos para otros tipos de marcadores...
 };
 

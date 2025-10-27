@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build-pwa"
+  publish = "dist/geo-app/browser"
+
+[functions]
+  directory = "dist/geo-app/server"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
