@@ -36,7 +36,7 @@
     "@angular/ssr": "^19.0.2",
     "@auth0/angular-jwt": "^5.2.0",
     "@capacitor/core": "^7.4.4",
-    "@capacitor/geolocation": "^6.0.2",
+    "@capacitor/geolocation": "^7.1.5",
     "@fortawesome/fontawesome-free": "^6.7.1",
     "@ngneat/until-destroy": "^10.0.0",
     "@ngrx/signals": "^18.1.1",
